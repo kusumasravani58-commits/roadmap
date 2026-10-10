@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore career paths across government, private sector, self-employment, startups and farming.">
+  <title>PathPilot — Career Route Map</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">P</span><span>PathPilot<small>CAREER ROUTE MAP</small></span></a>
+    <nav><a href="#explore">Explore careers</a><a href="#how">How it works</a></nav>
+    <div class="account-area">
+      <span id="userStatus" class="user-status">Guest mode</span>
+      <button id="loginBtn" class="btn btn-outline">Login / Sign up</button>
+      <button id="logoutBtn" class="btn btn-outline hidden">Log out</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="pulse"></span> YOUR FUTURE, MAPPED OUT</span>
+        <h1>One goal.<br><span>Many ways to get there.</span></h1>
+        <p>Choose a career and turn a big ambition into a practical route map — skills, qualifications, projects and next steps.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="#explore">Explore 36 career paths <span>↗</span></a><button id="randomBtn" class="btn btn-light">Surprise me ✦</button></div>
+        <div class="trust-row"><span>✓ Beginner-friendly</span><span>✓ Clear next steps</span><span>✓ Free to explore</span></div>
+      </div>
+      <div class="hero-art" aria-label="Career route illustration">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="planet">✦</div><div class="route-line"></div>
+        <div class="float-card card-top"><span class="float-icon purple">⌘</span><span><b>Build skills</b><small>Learn by doing</small></span><i>↗</i></div>
+        <div class="float-card card-bottom"><span class="float-icon green">✓</span><span><b>Find your route</b><small>One step at a time</small></span><i>↗</i></div>
+        <div class="center-label">YOUR NEXT<br>CHAPTER <span>✧</span></div>
+      </div>
+    </section>
+
+    <section class="stats-strip"><div><strong>36</strong><span>career routes</span></div><div><strong>5</strong><span>career worlds</span></div><div><strong>1</strong><span>next step to start</span></div><div class="quote">“Your path doesn't have to be linear.” <span>— PathPilot</span></div></section>
+
+    <section class="explore-section" id="explore">
+      <div class="section-heading"><div><span class="eyebrow">FIND YOUR DIRECTION</span><h2>Which future feels like you?</h2><p>Pick a world, then choose a role to reveal your route map.</p></div><div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Search jobs or skills..." aria-label="Search jobs"></div></div>
+      <div id="categoryTabs" class="category-tabs"></div>
+      <div id="jobGrid" class="job-grid"></div>
+      <p id="emptyState" class="empty-state hidden">No matching careers. Try a different search.</p>
+    </section>
+
+    <section class="roadmap-section hidden" id="roadmapSection">
+      <div class="roadmap-heading"><div><span class="eyebrow">YOUR PERSONAL ROUTE</span><h2 id="roadmapTitle">Career route map</h2><p id="roadmapSubtitle"></p></div><div class="roadmap-actions"><button id="regenerateBtn" class="btn btn-light">↻ Regenerate route</button><button id="exportBtn" class="btn btn-primary">Export route ↓</button></div></div>
+      <div class="route-summary" id="routeSummary"></div>
+      <div class="roadmap-layout"><div class="route-track" id="routeTrack"></div><aside class="route-aside"><span class="aside-icon">✦</span><h3>Your next move</h3><p id="nextMove"></p><button id="saveBtn" class="btn btn-primary full-width">Save this route</button><p class="aside-note" id="saveMessage">Sign in to associate saved routes with your account.</p></aside></div>
+    </section>
+
+    <section class="how-section" id="how"><span class="eyebrow">SIMPLE BY DESIGN</span><h2>From curious to confident.</h2><div class="how-grid"><article><span>01</span><h3>Choose a career</h3><p>Explore roles across public service, companies, independent work, startups and agriculture.</p></article><article><span>02</span><h3>Follow the route</h3><p>See a practical sequence of learning, experience, portfolio and entry steps.</p></article><article><span>03</span><h3>Make it yours</h3><p>Edit milestones, regenerate suggestions and export your plan to keep moving.</p></article></div></section>
+  </main>
+  <footer><a class="brand" href="#"><span class="brand-mark">P</span><span>PathPilot<small>CAREER ROUTE MAP</small></span></a><span>Career guidance for your next chapter. <span id="apiStatus">Checking server…</span></span></footer>
+
+  <dialog id="authDialog" class="auth-dialog">
+    <button class="dialog-close" id="closeAuth" aria-label="Close">×</button><div class="auth-logo">P</div><span class="eyebrow">WELCOME TO PATHPILOT</span><h2 id="authTitle">Your next chapter starts here.</h2><p class="auth-description">Sign in to save your career routes across devices.</p>
+    <div class="auth-tabs"><button id="signInTab" class="active">Login</button><button id="signUpTab">Create account</button></div>
+    <form id="authForm"><label for="authEmail">Email address</label><input id="authEmail" type="email" placeholder="you@example.com" required autocomplete="email"><label for="authPassword">Password</label><input id="authPassword" type="password" placeholder="At least 6 characters" minlength="6" required autocomplete="current-password"><button class="btn btn-primary full-width" id="authSubmit" type="submit">Login</button><p id="authMessage" class="form-message" role="status"></p></form>
+    <p class="fine-print">Authentication uses Firebase when configured. Never share your password.</p>
+  </dialog>
+  <div id="toast" class="toast" role="status"></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
